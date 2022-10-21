@@ -47,7 +47,7 @@ class MyDataset(data.Dataset):
             if args.dataset == 'KITTI':
                 self.data_path = '/model/Narci/SARPN/datasets/KITTI'
             if args.dataset == 'NYU':
-                self.data_path = "/home/rrzhang/zengzy/code/clip_depth/datasets/NYU_Depth_V2/official_splits/test"
+                self.data_path = "/home/student/DepthCLIP/DepthCLIP_code/datasets/NYU_Depth_V2/official_splits/test"
         self.return_filename = return_filename
         with open(self.datafile, 'r') as f:
             self.fileset = f.readlines()

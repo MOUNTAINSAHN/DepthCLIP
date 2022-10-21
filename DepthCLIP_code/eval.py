@@ -6,6 +6,7 @@ import torch.backends.cudnn as cudnn
 import torch.nn as nn
 import torch.utils.data
 from calculate_error import *
+from torchvision.transforms.functional import to_pil_image
 from datasets.datasets_list import MyDataset
 import imageio
 import imageio.core.util
@@ -26,9 +27,9 @@ parser.add_argument('--model_dir',type=str)
 parser.add_argument('--other_method',type=str) # default='MonoCLIP'
 parser.add_argument('--trainfile_kitti', type=str, default = "./datasets/eigen_train_files_with_gt_dense.txt")
 parser.add_argument('--testfile_kitti', type=str, default = "./datasets/eigen_test_files_with_gt_dense.txt")
-parser.add_argument('--trainfile_nyu', type=str, default = "/home/rrzhang/zengzy/code/clip_depth/datasets/nyudepthv2_train_files_with_gt_dense.txt")
-parser.add_argument('--testfile_nyu', type=str, default = "/home/rrzhang/zengzy/code/clip_depth/datasets/nyudepthv2_test_files_with_gt_dense.txt")
-parser.add_argument('--data_path', type=str, default = "/home/rrzhang/zengzy/code/clip_depth/datasets/NYU_Depth_V2")
+parser.add_argument('--trainfile_nyu', type=str, default = "/home/student/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_train_files_with_gt_dense.txt")
+parser.add_argument('--testfile_nyu', type=str, default = "/home/student/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_test_files_with_gt_dense.txt")
+parser.add_argument('--data_path', type=str, default = "/home/student/DepthCLIP/DepthCLIP_code/datasets/NYU_Depth_V2")
 parser.add_argument('--use_dense_depth', action='store_true', help='using dense depth data for gradient loss')
 
 # Dataloader setting
@@ -108,6 +109,10 @@ def validate(args, val_loader, model, dataset = 'KITTI'):
                 output_depth = nn.functional.interpolate(output_depth, size=[2 * output_depth.shape[2], 2 * output_depth.shape[3]], mode='bilinear', align_corners=True)
             elif args.other_method == 'MonoCLIP':
                 output_depth = nn.functional.interpolate(output_depth, size=[416, 544], mode='bilinear', align_corners=True)
+                image_name=str(i)+'.jpg'
+                output_path=os.path.join("/home/student/DepthCLIP/DepthCLIP_code/result_all",image_name)
+                output_ima = to_pil_image(output_depth.cpu().squeeze())
+                output_ima.save(output_path)
 
         if dataset == 'KITTI':
             err_result = compute_errors(gt_data, output_depth, crop=True, cap=args.cap)

@@ -242,7 +242,7 @@ class deepFeatureExtractor_ResNext101(nn.Module):
                 module.bias.requires_grad = enable
 
 class deepFeatureExtractor_VGG19(nn.Module):
-    def __init__(self,args):
+    def __init__(self,args,lv6 = False):
         super(deepFeatureExtractor_VGG19, self).__init__()
         self.args = args
         # after passing 6th layer   : H/2  x W/2
