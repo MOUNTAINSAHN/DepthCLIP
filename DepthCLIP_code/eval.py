@@ -24,12 +24,12 @@ parser = argparse.ArgumentParser(description='Transformer-based Monocular Depth 
 parser.add_argument('--models_list_dir', type=str, default='')
 parser.add_argument('--result_dir', type=str, default='')
 parser.add_argument('--model_dir',type=str)
-parser.add_argument('--other_method',type=str) # default='MonoCLIP'
-parser.add_argument('--trainfile_kitti', type=str, default = "./datasets/eigen_train_files_with_gt_dense.txt")
-parser.add_argument('--testfile_kitti', type=str, default = "./datasets/eigen_test_files_with_gt_dense.txt")
-parser.add_argument('--trainfile_nyu', type=str, default = "/home/student/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_train_files_with_gt_dense.txt")
-parser.add_argument('--testfile_nyu', type=str, default = "/home/student/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_test_files_with_gt_dense.txt")
-parser.add_argument('--data_path', type=str, default = "/home/student/DepthCLIP/DepthCLIP_code/datasets/NYU_Depth_V2")
+parser.add_argument('--other_method', type=str, default='MonoCLIP') # default='MonoCLIP'
+parser.add_argument('--trainfile_kitti', type=str, default="./datasets/eigen_train_files_with_gt_dense.txt")
+parser.add_argument('--testfile_kitti', type=str, default="./datasets/eigen_test_files_with_gt_dense.txt")
+parser.add_argument('--trainfile_nyu', type=str, default="D:/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_train_files_with_gt_dense.txt")
+parser.add_argument('--testfile_nyu', type=str, default="D:/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_test_files_with_gt_dense.txt")
+parser.add_argument('--data_path', type=str, default="D:/DepthCLIP/DepthCLIP_code/datasets/NYU_Depth_V2/official_splits")
 parser.add_argument('--use_dense_depth', action='store_true', help='using dense depth data for gradient loss')
 
 # Dataloader setting
@@ -39,7 +39,7 @@ parser.add_argument('--epochs', default=0, type=int, metavar='N', help='number o
 parser.add_argument('--lr', default=0, type=float, metavar='LR', help='initial learning rate')
 parser.add_argument('--batch_size', default=24, type=int, metavar='N', help='mini-batch size')
 parser.add_argument('--seed', default=0, type=int, help='seed for random functions, and network initialization')
-parser.add_argument('--dataset', type=str, default = "KITTI")
+parser.add_argument('--dataset', type=str, default = "NYU")
 
 # Logging setting
 parser.add_argument('--print-freq', default=100, type=int, metavar='N', help='print frequency')
@@ -109,10 +109,12 @@ def validate(args, val_loader, model, dataset = 'KITTI'):
                 output_depth = nn.functional.interpolate(output_depth, size=[2 * output_depth.shape[2], 2 * output_depth.shape[3]], mode='bilinear', align_corners=True)
             elif args.other_method == 'MonoCLIP':
                 output_depth = nn.functional.interpolate(output_depth, size=[416, 544], mode='bilinear', align_corners=True)
-                image_name=str(i)+'.jpg'
-                output_path=os.path.join("/home/student/DepthCLIP/DepthCLIP_code/result_all",image_name)
-                output_ima = to_pil_image(output_depth.cpu().squeeze())
-                output_ima.save(output_path)
+
+
+                # image_name=str(i)+'.jpg'
+                # output_path=os.path.join("/home/student/DepthCLIP/DepthCLIP_code/result_all",image_name)
+                # output_ima = to_pil_image(output_depth.cpu().squeeze())
+                # output_ima.save(output_path)
 
         if dataset == 'KITTI':
             err_result = compute_errors(gt_data, output_depth, crop=True, cap=args.cap)

@@ -1001,14 +1001,15 @@ class MonoCLIP(nn.Module):
         img_f = img_f / img_f.norm(dim=-1, keepdim=True) # normalize img_f
 
         # @: dot product of two vectors
-        img_f=torch.nn.functional.interpolate(img_f,scale_factor=0.5) # to match size
+        img_f = torch.nn.functional.interpolate(img_f, scale_factor=0.5) # to match size
 
         depth_logits = 100. * img_f @ self.text_f  # B, HW, K # img_f and text_f have both been normalized, so just use a inner product
         depth_logits = depth_logits.permute(0, 2, 1).reshape(-1, self.bins, 13, 17)  # B, K, H, W 
-        depth_logits/=temperature
+        depth_logits /= temperature
 
         depth = F.softmax(depth_logits, dim=1)
-        bin_tensor=torch.tensor(bin_list).to(depth.device)
+        bin_tensor = torch.tensor(bin_list).to(depth.device)
+        a=bin_tensor.reshape(1, self.bins).unsqueeze(-1).unsqueeze(-1)
         depth = depth * bin_tensor.reshape(1, self.bins).unsqueeze(-1).unsqueeze(-1)
         depth = depth.sum(1, keepdim=True)
         return depth   

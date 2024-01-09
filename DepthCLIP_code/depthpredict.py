@@ -11,7 +11,7 @@ from path import Path
 from utils import *
 from logger import AverageMeter
 from model import *
-from monoclip import *
+from simpleDepthClip import *
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
 import os
@@ -23,8 +23,8 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-data_path = '/home/student/DepthCLIP/DepthCLIP_code/IMAGE'
-result = "/home/student/DepthCLIP/DepthCLIP_code/depthpredict_normalized"
+data_path = r'D:\DepthCLIP\DepthCLIP_code\datasets\IMAGE'
+result = r"D:\DepthCLIP\DepthCLIP_code\RESULT\EXP1"
 if not os.path.exists(result):
     os.mkdir(result)
 image_name = os.listdir(data_path)

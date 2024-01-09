@@ -7,16 +7,20 @@ import torch
 import time
 import cv2
 from PIL import ImageFile
-from transform_list import RandomCropNumpy,EnhancedCompose,RandomColor,RandomHorizontalFlip,ArrayToTensorNumpy,Normalize,CropNumpy
+from transform_list import RandomCropNumpy, EnhancedCompose, RandomColor, RandomHorizontalFlip, ArrayToTensorNumpy, \
+    Normalize, CropNumpy
 from torchvision import transforms
 import pdb
+
 ImageFile.LOAD_TRUNCATED_IMAGES = True
+
 
 def _is_pil_image(img):
     return isinstance(img, Image.Image)
 
+
 class MyDataset(data.Dataset):
-    def __init__(self, args, train=True, return_filename = False):
+    def __init__(self, args, train=True, return_filename=False):
         self.use_dense_depth = args.use_dense_depth
         if train is True:
             if args.dataset == 'KITTI':
@@ -24,7 +28,7 @@ class MyDataset(data.Dataset):
                 self.angle_range = (-1, 1)
                 self.depth_scale = 256.0
             elif args.dataset == 'NYU':
-                self.datafile = args.trainfile_nyu 
+                self.datafile = args.trainfile_nyu
                 self.angle_range = (-2.5, 2.5)
                 self.depth_scale = 1000.0
                 args.height = 416
@@ -47,7 +51,7 @@ class MyDataset(data.Dataset):
             if args.dataset == 'KITTI':
                 self.data_path = '/model/Narci/SARPN/datasets/KITTI'
             if args.dataset == 'NYU':
-                self.data_path = "/home/student/DepthCLIP/DepthCLIP_code/datasets/NYU_Depth_V2/official_splits/test"
+                self.data_path = "D:/DepthCLIP/DepthCLIP_code/datasets/NYU_Depth_V2/official_splits/test"
         self.return_filename = return_filename
         with open(self.datafile, 'r') as f:
             self.fileset = f.readlines()
@@ -68,7 +72,7 @@ class MyDataset(data.Dataset):
                 filename = divided_file_[1] + '_' + divided_file_[4]
             else:
                 filename = divided_file_[0] + '_' + divided_file_[1]
-            
+
             if self.args.dataset == 'KITTI':
                 # Considering missing gt in Eigen split
                 if divided_file[1] != 'None':
@@ -96,19 +100,19 @@ class MyDataset(data.Dataset):
                 gt_file = self.data_path + '/' + divided_file[1]
                 if self.use_dense_depth is True:
                     gt_dense_file = self.data_path + '/' + divided_file[2]
-            
-            gt = Image.open(gt_file)         
+
+            gt = Image.open(gt_file)
             rgb = rgb.rotate(angle, resample=Image.BILINEAR)
             gt = gt.rotate(angle, resample=Image.NEAREST)
             if self.use_dense_depth is True:
-                gt_dense = Image.open(gt_dense_file) 
+                gt_dense = Image.open(gt_dense_file)
                 gt_dense = gt_dense.rotate(angle, resample=Image.NEAREST)
 
         # cropping in size that can be divided by 16
         if self.args.dataset == 'KITTI':
             h = rgb.height
             w = rgb.width
-            bound_left = (w - 1216)//2
+            bound_left = (w - 1216) // 2
             bound_right = bound_left + 1216
             bound_top = h - 352
             bound_bottom = bound_top + 352
@@ -124,39 +128,34 @@ class MyDataset(data.Dataset):
                 bound_top = 0
                 bound_bottom = 480
         # crop and normalize 0 to 1 ==>  rgb range:(0,1),  depth range: (0, max_depth)
-        #pdb.set_trace()
+        # pdb.set_trace()
         if (self.args.dataset == 'NYU' and (self.train is False) and (self.return_filename is False)):
-            rgb = rgb.crop((40+20,42+14,616-12,474-2))
-            #rgb = rgb.crop((54,49,599-1,466-1))
-            #rgb = rgb.crop((40,42,616,474))
-            #rgb = rgb.crop((40-8,42-18,616-8,474-18))
-            
+            rgb = rgb.crop((40 + 20, 42 + 14, 616 - 12, 474 - 2))
+            # rgb = rgb.crop((54,49,599-1,466-1))
+            # rgb = rgb.crop((40,42,616,474))
+            # rgb = rgb.crop((40-8,42-18,616-8,474-18))
+
         else:
-            rgb = rgb.crop((bound_left,bound_top,bound_right,bound_bottom))
+            rgb = rgb.crop((bound_left, bound_top, bound_right, bound_bottom))
 
         # save for vis
         rgb.save("vis.jpeg")
-        
-        rgb = np.asarray(rgb, dtype=np.float32)/255.0
 
-        
-
-        
+        rgb = np.asarray(rgb, dtype=np.float32) / 255.0
 
         if _is_pil_image(gt):
-            gt = gt.crop((bound_left,bound_top,bound_right,bound_bottom))
-            gt = (np.asarray(gt, dtype=np.float32))/self.depth_scale
+            gt = gt.crop((bound_left, bound_top, bound_right, bound_bottom))
+            gt = (np.asarray(gt, dtype=np.float32)) / self.depth_scale
             gt = np.expand_dims(gt, axis=2)
             gt = np.clip(gt, 0, self.args.max_depth)
         if self.use_dense_depth is True:
             if _is_pil_image(gt_dense):
-                gt_dense = gt_dense.crop((bound_left,bound_top,bound_right,bound_bottom))
-                gt_dense = (np.asarray(gt_dense, dtype=np.float32))/self.depth_scale
+                gt_dense = gt_dense.crop((bound_left, bound_top, bound_right, bound_bottom))
+                gt_dense = (np.asarray(gt_dense, dtype=np.float32)) / self.depth_scale
                 gt_dense = np.expand_dims(gt_dense, axis=2)
                 gt_dense = np.clip(gt_dense, 0, self.args.max_depth)
-                gt_dense = gt_dense * (gt.max()/gt_dense.max())
+                gt_dense = gt_dense * (gt.max() / gt_dense.max())
 
-        
         # import matplotlib.pyplot as plt
         # plt.figure(dpi=300,figsize=(5,5))
         # plt.subplot(3,1,1)
@@ -184,34 +183,36 @@ class MyDataset(data.Dataset):
     def __len__(self):
         return len(self.fileset)
 
+
 class Transformer(object):
     def __init__(self, args):
         if args.dataset == 'KITTI':
             self.train_transform = EnhancedCompose([
-                RandomCropNumpy((args.height,args.width)),
+                RandomCropNumpy((args.height, args.width)),
                 RandomHorizontalFlip(),
                 [RandomColor(multiplier_range=(0.9, 1.1)), None, None],
                 ArrayToTensorNumpy(),
                 [transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), None, None]
             ])
             self.test_transform = EnhancedCompose([
-                CropNumpy((args.height,args.width)),
+                CropNumpy((args.height, args.width)),
                 ArrayToTensorNumpy(),
                 [transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), None, None]
             ])
         elif args.dataset == 'NYU':
             self.train_transform = EnhancedCompose([
-                RandomCropNumpy((args.height,args.width)),
+                RandomCropNumpy((args.height, args.width)),
                 RandomHorizontalFlip(),
-                [RandomColor(multiplier_range=(0.8, 1.2),brightness_mult_range=(0.75, 1.25)), None, None],
+                [RandomColor(multiplier_range=(0.8, 1.2), brightness_mult_range=(0.75, 1.25)), None, None],
                 ArrayToTensorNumpy(),
                 [transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), None, None]
             ])
             self.test_transform = EnhancedCompose([
-                #CropNumpy((args.height,args.width)),
+                # CropNumpy((args.height,args.width)),
                 ArrayToTensorNumpy(),
                 [transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), None, None]
             ])
+
     def __call__(self, images, train=True):
         if train is True:
             return self.train_transform(images)
