@@ -1,0 +1,110 @@
+2024-01-15 16:51:53,165 - INFO - Epoch [1/100], Learning Rate: 0.1, Loss: 2.400390625,Errors:abs_diff : 0.936, a1 : 0.388, a2 : 0.681, a3 : 0.851, abs_rel : 0.385, log10 : 0.157, rmse : 1.170
+2024-01-15 16:52:55,017 - INFO - Epoch [2/100], Learning Rate: 0.1, Loss: 2.40234375,Errors:abs_diff : 0.935, a1 : 0.389, a2 : 0.681, a3 : 0.851, abs_rel : 0.385, log10 : 0.157, rmse : 1.169
+2024-01-15 16:53:57,675 - INFO - Epoch [3/100], Learning Rate: 0.1, Loss: 2.818359375,Errors:abs_diff : 0.933, a1 : 0.390, a2 : 0.682, a3 : 0.852, abs_rel : 0.386, log10 : 0.156, rmse : 1.166
+2024-01-15 16:54:58,910 - INFO - Epoch [4/100], Learning Rate: 0.1, Loss: 3.36328125,Errors:abs_diff : 0.932, a1 : 0.391, a2 : 0.683, a3 : 0.853, abs_rel : 0.386, log10 : 0.156, rmse : 1.164
+2024-01-15 16:55:59,447 - INFO - Epoch [5/100], Learning Rate: 0.1, Loss: 3.0,Errors:abs_diff : 0.931, a1 : 0.391, a2 : 0.683, a3 : 0.853, abs_rel : 0.385, log10 : 0.156, rmse : 1.163
+2024-01-15 16:57:00,429 - INFO - Epoch [6/100], Learning Rate: 0.1, Loss: 2.658203125,Errors:abs_diff : 0.930, a1 : 0.392, a2 : 0.684, a3 : 0.853, abs_rel : 0.386, log10 : 0.156, rmse : 1.161
+2024-01-15 16:58:02,789 - INFO - Epoch [7/100], Learning Rate: 0.1, Loss: 2.35546875,Errors:abs_diff : 0.929, a1 : 0.392, a2 : 0.684, a3 : 0.854, abs_rel : 0.385, log10 : 0.156, rmse : 1.160
+2024-01-15 16:59:04,868 - INFO - Epoch [8/100], Learning Rate: 0.1, Loss: 1.7041015625,Errors:abs_diff : 0.929, a1 : 0.392, a2 : 0.685, a3 : 0.854, abs_rel : 0.386, log10 : 0.155, rmse : 1.159
+2024-01-15 17:00:05,153 - INFO - Epoch [9/100], Learning Rate: 0.1, Loss: 2.390625,Errors:abs_diff : 0.928, a1 : 0.393, a2 : 0.685, a3 : 0.854, abs_rel : 0.385, log10 : 0.155, rmse : 1.158
+2024-01-15 17:01:05,514 - INFO - Epoch [10/100], Learning Rate: 0.05, Loss: 3.65234375,Errors:abs_diff : 0.927, a1 : 0.393, a2 : 0.685, a3 : 0.855, abs_rel : 0.385, log10 : 0.155, rmse : 1.158
+2024-01-15 17:02:05,375 - INFO - Epoch [11/100], Learning Rate: 0.05, Loss: 2.330078125,Errors:abs_diff : 0.927, a1 : 0.393, a2 : 0.686, a3 : 0.855, abs_rel : 0.384, log10 : 0.155, rmse : 1.157
+2024-01-15 17:03:05,325 - INFO - Epoch [12/100], Learning Rate: 0.05, Loss: 3.009765625,Errors:abs_diff : 0.926, a1 : 0.393, a2 : 0.686, a3 : 0.855, abs_rel : 0.384, log10 : 0.155, rmse : 1.156
+2024-01-15 17:04:07,621 - INFO - Epoch [13/100], Learning Rate: 0.05, Loss: 1.4912109375,Errors:abs_diff : 0.926, a1 : 0.394, a2 : 0.686, a3 : 0.855, abs_rel : 0.384, log10 : 0.155, rmse : 1.156
+2024-01-15 17:05:07,318 - INFO - Epoch [14/100], Learning Rate: 0.05, Loss: 2.8515625,Errors:abs_diff : 0.925, a1 : 0.394, a2 : 0.686, a3 : 0.856, abs_rel : 0.383, log10 : 0.155, rmse : 1.155
+2024-01-15 17:06:07,409 - INFO - Epoch [15/100], Learning Rate: 0.05, Loss: 2.2109375,Errors:abs_diff : 0.925, a1 : 0.394, a2 : 0.687, a3 : 0.856, abs_rel : 0.383, log10 : 0.155, rmse : 1.155
+2024-01-15 17:07:07,244 - INFO - Epoch [16/100], Learning Rate: 0.05, Loss: 3.455078125,Errors:abs_diff : 0.925, a1 : 0.394, a2 : 0.687, a3 : 0.856, abs_rel : 0.383, log10 : 0.155, rmse : 1.154
+2024-01-15 17:08:06,674 - INFO - Epoch [17/100], Learning Rate: 0.05, Loss: 2.6171875,Errors:abs_diff : 0.924, a1 : 0.394, a2 : 0.687, a3 : 0.856, abs_rel : 0.383, log10 : 0.155, rmse : 1.154
+2024-01-15 17:09:06,352 - INFO - Epoch [18/100], Learning Rate: 0.05, Loss: 2.095703125,Errors:abs_diff : 0.924, a1 : 0.394, a2 : 0.687, a3 : 0.856, abs_rel : 0.382, log10 : 0.155, rmse : 1.154
+2024-01-15 17:10:06,050 - INFO - Epoch [19/100], Learning Rate: 0.05, Loss: 2.15625,Errors:abs_diff : 0.924, a1 : 0.394, a2 : 0.687, a3 : 0.856, abs_rel : 0.382, log10 : 0.155, rmse : 1.154
+2024-01-15 17:11:06,298 - INFO - Epoch [20/100], Learning Rate: 0.025, Loss: 1.419921875,Errors:abs_diff : 0.924, a1 : 0.394, a2 : 0.687, a3 : 0.856, abs_rel : 0.382, log10 : 0.155, rmse : 1.153
+2024-01-15 17:12:06,112 - INFO - Epoch [21/100], Learning Rate: 0.025, Loss: 1.181640625,Errors:abs_diff : 0.923, a1 : 0.394, a2 : 0.687, a3 : 0.857, abs_rel : 0.382, log10 : 0.155, rmse : 1.153
+2024-01-15 17:13:05,859 - INFO - Epoch [22/100], Learning Rate: 0.025, Loss: 3.001953125,Errors:abs_diff : 0.923, a1 : 0.394, a2 : 0.688, a3 : 0.857, abs_rel : 0.382, log10 : 0.154, rmse : 1.153
+2024-01-15 17:14:05,901 - INFO - Epoch [23/100], Learning Rate: 0.025, Loss: 2.19921875,Errors:abs_diff : 0.923, a1 : 0.394, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.153
+2024-01-15 17:15:05,914 - INFO - Epoch [24/100], Learning Rate: 0.025, Loss: 1.3857421875,Errors:abs_diff : 0.923, a1 : 0.394, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.153
+2024-01-15 17:16:05,547 - INFO - Epoch [25/100], Learning Rate: 0.025, Loss: 2.1484375,Errors:abs_diff : 0.923, a1 : 0.394, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:17:05,468 - INFO - Epoch [26/100], Learning Rate: 0.025, Loss: 2.591796875,Errors:abs_diff : 0.923, a1 : 0.394, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:18:05,782 - INFO - Epoch [27/100], Learning Rate: 0.025, Loss: 3.95703125,Errors:abs_diff : 0.923, a1 : 0.394, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:19:05,668 - INFO - Epoch [28/100], Learning Rate: 0.025, Loss: 2.375,Errors:abs_diff : 0.923, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:20:05,231 - INFO - Epoch [29/100], Learning Rate: 0.025, Loss: 2.197265625,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:21:04,943 - INFO - Epoch [30/100], Learning Rate: 0.0125, Loss: 2.791015625,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:22:04,954 - INFO - Epoch [31/100], Learning Rate: 0.0125, Loss: 2.533203125,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:23:04,426 - INFO - Epoch [32/100], Learning Rate: 0.0125, Loss: 2.15234375,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:24:04,260 - INFO - Epoch [33/100], Learning Rate: 0.0125, Loss: 2.8125,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:25:04,460 - INFO - Epoch [34/100], Learning Rate: 0.0125, Loss: 3.0625,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.381, log10 : 0.154, rmse : 1.152
+2024-01-15 17:26:04,200 - INFO - Epoch [35/100], Learning Rate: 0.0125, Loss: 1.45703125,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:27:04,282 - INFO - Epoch [36/100], Learning Rate: 0.0125, Loss: 2.974609375,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:28:04,884 - INFO - Epoch [37/100], Learning Rate: 0.0125, Loss: 2.1171875,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:29:04,745 - INFO - Epoch [38/100], Learning Rate: 0.0125, Loss: 2.12890625,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.857, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:30:04,561 - INFO - Epoch [39/100], Learning Rate: 0.0125, Loss: 3.333984375,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.688, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:31:04,593 - INFO - Epoch [40/100], Learning Rate: 0.00625, Loss: 2.126953125,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:32:04,299 - INFO - Epoch [41/100], Learning Rate: 0.00625, Loss: 2.912109375,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:33:06,710 - INFO - Epoch [42/100], Learning Rate: 0.00625, Loss: 2.3203125,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:34:08,935 - INFO - Epoch [43/100], Learning Rate: 0.00625, Loss: 3.216796875,Errors:abs_diff : 0.922, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:35:11,266 - INFO - Epoch [44/100], Learning Rate: 0.00625, Loss: 1.892578125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:36:13,719 - INFO - Epoch [45/100], Learning Rate: 0.00625, Loss: 2.802734375,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:37:14,704 - INFO - Epoch [46/100], Learning Rate: 0.00625, Loss: 1.5498046875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:38:14,554 - INFO - Epoch [47/100], Learning Rate: 0.00625, Loss: 1.705078125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:39:14,362 - INFO - Epoch [48/100], Learning Rate: 0.00625, Loss: 2.671875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:40:16,901 - INFO - Epoch [49/100], Learning Rate: 0.00625, Loss: 1.73046875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:41:17,189 - INFO - Epoch [50/100], Learning Rate: 0.003125, Loss: 1.6240234375,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:42:17,775 - INFO - Epoch [51/100], Learning Rate: 0.003125, Loss: 3.25,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:43:18,719 - INFO - Epoch [52/100], Learning Rate: 0.003125, Loss: 3.078125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.151
+2024-01-15 17:44:20,740 - INFO - Epoch [53/100], Learning Rate: 0.003125, Loss: 2.8203125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:45:23,458 - INFO - Epoch [54/100], Learning Rate: 0.003125, Loss: 1.8095703125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:46:23,734 - INFO - Epoch [55/100], Learning Rate: 0.003125, Loss: 2.1640625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:47:24,264 - INFO - Epoch [56/100], Learning Rate: 0.003125, Loss: 3.0703125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:48:23,726 - INFO - Epoch [57/100], Learning Rate: 0.003125, Loss: 1.9462890625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:49:23,438 - INFO - Epoch [58/100], Learning Rate: 0.003125, Loss: 2.91796875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:50:24,826 - INFO - Epoch [59/100], Learning Rate: 0.003125, Loss: 2.51171875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:51:25,256 - INFO - Epoch [60/100], Learning Rate: 0.0015625, Loss: 2.392578125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:52:25,161 - INFO - Epoch [61/100], Learning Rate: 0.0015625, Loss: 2.193359375,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:53:24,835 - INFO - Epoch [62/100], Learning Rate: 0.0015625, Loss: 2.73828125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:54:25,363 - INFO - Epoch [63/100], Learning Rate: 0.0015625, Loss: 2.10546875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:55:26,089 - INFO - Epoch [64/100], Learning Rate: 0.0015625, Loss: 1.8408203125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:56:26,470 - INFO - Epoch [65/100], Learning Rate: 0.0015625, Loss: 3.556640625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.380, log10 : 0.154, rmse : 1.150
+2024-01-15 17:57:26,095 - INFO - Epoch [66/100], Learning Rate: 0.0015625, Loss: 2.1640625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 17:58:26,393 - INFO - Epoch [67/100], Learning Rate: 0.0015625, Loss: 1.666015625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 17:59:27,396 - INFO - Epoch [68/100], Learning Rate: 0.0015625, Loss: 4.0859375,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:00:28,000 - INFO - Epoch [69/100], Learning Rate: 0.0015625, Loss: 1.9345703125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:01:28,455 - INFO - Epoch [70/100], Learning Rate: 0.00078125, Loss: 2.154296875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:02:28,356 - INFO - Epoch [71/100], Learning Rate: 0.00078125, Loss: 3.162109375,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:03:28,578 - INFO - Epoch [72/100], Learning Rate: 0.00078125, Loss: 2.427734375,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:04:29,176 - INFO - Epoch [73/100], Learning Rate: 0.00078125, Loss: 2.35546875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:05:29,472 - INFO - Epoch [74/100], Learning Rate: 0.00078125, Loss: 2.0625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:06:29,144 - INFO - Epoch [75/100], Learning Rate: 0.00078125, Loss: 1.9580078125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:07:29,673 - INFO - Epoch [76/100], Learning Rate: 0.00078125, Loss: 2.529296875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:08:29,820 - INFO - Epoch [77/100], Learning Rate: 0.00078125, Loss: 1.5478515625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:09:29,502 - INFO - Epoch [78/100], Learning Rate: 0.00078125, Loss: 2.080078125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:10:29,860 - INFO - Epoch [79/100], Learning Rate: 0.00078125, Loss: 2.064453125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:11:29,720 - INFO - Epoch [80/100], Learning Rate: 0.000390625, Loss: 1.779296875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:12:32,090 - INFO - Epoch [81/100], Learning Rate: 0.000390625, Loss: 2.244140625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:13:31,731 - INFO - Epoch [82/100], Learning Rate: 0.000390625, Loss: 1.36328125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:14:31,140 - INFO - Epoch [83/100], Learning Rate: 0.000390625, Loss: 2.267578125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:15:31,024 - INFO - Epoch [84/100], Learning Rate: 0.000390625, Loss: 2.9609375,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:16:30,545 - INFO - Epoch [85/100], Learning Rate: 0.000390625, Loss: 1.5244140625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:17:30,119 - INFO - Epoch [86/100], Learning Rate: 0.000390625, Loss: 2.873046875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:18:30,772 - INFO - Epoch [87/100], Learning Rate: 0.000390625, Loss: 3.3046875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:19:30,327 - INFO - Epoch [88/100], Learning Rate: 0.000390625, Loss: 1.4697265625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:20:30,377 - INFO - Epoch [89/100], Learning Rate: 0.000390625, Loss: 3.1015625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:21:30,243 - INFO - Epoch [90/100], Learning Rate: 0.0001953125, Loss: 2.060546875,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:22:29,870 - INFO - Epoch [91/100], Learning Rate: 0.0001953125, Loss: 2.94140625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:23:31,130 - INFO - Epoch [92/100], Learning Rate: 0.0001953125, Loss: 2.26953125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:24:31,711 - INFO - Epoch [93/100], Learning Rate: 0.0001953125, Loss: 2.283203125,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:25:34,503 - INFO - Epoch [94/100], Learning Rate: 0.0001953125, Loss: 2.009765625,Errors:abs_diff : 0.921, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:26:34,259 - INFO - Epoch [95/100], Learning Rate: 0.0001953125, Loss: 2.4765625,Errors:abs_diff : 0.920, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:27:34,435 - INFO - Epoch [96/100], Learning Rate: 0.0001953125, Loss: 1.3310546875,Errors:abs_diff : 0.920, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:28:35,217 - INFO - Epoch [97/100], Learning Rate: 0.0001953125, Loss: 2.513671875,Errors:abs_diff : 0.920, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:29:35,753 - INFO - Epoch [98/100], Learning Rate: 0.0001953125, Loss: 2.994140625,Errors:abs_diff : 0.920, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:30:35,954 - INFO - Epoch [99/100], Learning Rate: 0.0001953125, Loss: 2.197265625,Errors:abs_diff : 0.920, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+2024-01-15 18:31:36,070 - INFO - Epoch [100/100], Learning Rate: 9.765625e-05, Loss: 2.189453125,Errors:abs_diff : 0.920, a1 : 0.395, a2 : 0.689, a3 : 0.858, abs_rel : 0.379, log10 : 0.154, rmse : 1.150
+#SUM
+#LR:0.1
+#LR_SCHDULE:StepLR(optimizer,step_size=10, gamma=0.5)
+#batchsize:16
+#loss:MSELoss()
+#optimizer = torch.optim.SGD(Model.unfixedvalue.parameters(), lr=0.1)
+#dataset: NYU2
+#Sort and Clamp
+
+
