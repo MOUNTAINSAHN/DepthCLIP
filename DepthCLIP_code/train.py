@@ -10,7 +10,7 @@ import logging
 import argparse
 import torch.utils.data
 import torch.backends.cudnn as cudnn
-import tqdm
+from tqdm import tqdm
 from torchvision.transforms.functional import to_pil_image
 
 from calculate_error import *
@@ -41,11 +41,11 @@ parser.add_argument('--other_method', type=str, default='MonoCLIP')
 parser.add_argument('--trainfile_kitti', type=str, default="./datasets/eigen_train_files_with_gt_dense.txt")
 parser.add_argument('--testfile_kitti', type=str, default="./datasets/eigen_test_files_with_gt_dense.txt")
 parser.add_argument('--trainfile_nyu', type=str,
-                    default=r"D:\DepthCLIP\DepthCLIP_code\datasets\nyudepthv2_train_files_with_gt_dense.txt")
+                    default=r"/home/student/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_train_files_with_gt_dense.txt")
 parser.add_argument('--testfile_nyu', type=str,
-                    default=r"D:\DepthCLIP\DepthCLIP_code\datasets\nyudepthv2_test_files_with_gt_dense.txt")
+                    default=r"/home/student/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_test_files_with_gt_dense.txt")
 parser.add_argument('--data_path', type=str,
-                    default=r"D:\DepthCLIP\DepthCLIP_code\datasets\NYU_Depth_V2\official_splits")
+                    default=r"/home/student/DepthCLIP/DepthCLIP_code/datasets/NYU_Depth_V2/official_splits")
 parser.add_argument('--use_dense_depth', action='store_true', help='using dense depth data for gradient loss')
 
 # Dataloader setting
@@ -54,7 +54,7 @@ parser.add_argument('--epoch_size', default=0, type=int, metavar='N',
                     help='manual epoch size (will match dataset size if not set)')
 
 parser.add_argument('--lr', default=0, type=float, metavar='LR', help='initial learning rate')
-parser.add_argument('--batch_size', default=4, type=int, metavar='N', help='mini-batch size')
+parser.add_argument('--batch_size', default=16, type=int, metavar='N', help='mini-batch size')
 parser.add_argument('--seed', default=0, type=int, help='seed for random functions, and network initialization')
 parser.add_argument('--dataset', type=str, default="NYU")
 
@@ -74,7 +74,7 @@ parser.add_argument('--max_depth', default=80.0, type=float, metavar='MaxVal', h
 parser.add_argument('--lv6', action='store_true', help='use lv6 Laplacian decoder')
 
 # Train setting
-parser.add_argument('--epochs', default=20, type=int)
+parser.add_argument('--epochs', default=100, type=int)
 
 # Evaluation setting
 parser.add_argument('--evaluate', action='store_true', help='evaluate score')
@@ -85,7 +85,9 @@ parser.add_argument('--cap', default=80.0, type=float, metavar='MaxVal', help='c
 # GPU parallel process setting
 parser.add_argument('--gpu_num', type=str, default="0,1,2,3", help='force available gpu index')
 parser.add_argument('--rank', type=int, help='node rank for distributed training', default=0)
-logging.basicConfig(filename='training_log2.txt', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+
+logging.basicConfig(filename='training_log4', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def calculate_attention_loss(volume, gt):
     cos = torch.nn.CosineSimilarity(dim=3, eps=1e-08)
@@ -197,6 +199,8 @@ def main():
         if args.other_method == 'MonoCLIP':
             if args.dataset == 'KITTI':
                 Model = IntergratedDepthCLIP()
+                Model.unfixedvalue.conv2d.weight.data = torch.tensor([1, 1, 1, 1, 1, 1, 1]).view(
+                    [1, 7, 1, 1]).cuda().half()
             if args.dataset == 'NYU':
                 Model = IntergratedDepthCLIP()
                 Model.unfixedvalue.conv2d.weight.data = torch.tensor([1, 1, 1, 1, 1, 1, 1]).view([1, 7, 1, 1]).cuda().half()
@@ -222,23 +226,32 @@ def main():
     length = len(val_loader)
     ###########################################################################
 
-    ###################### setting training part ###################
-    optimizer = torch.optim.Adam(Model.unfixedvalue.parameters(), lr=0.01)
-    scheduler = lr_scheduler.CosineAnnealingLR(optimizer, T_max=args.epochs // 2)
-    criterion = DepthLoss()
+    # ###################### setting training part ###################
+    # optimizer = torch.optim.Adam(Model.unfixedvalue.parameters(), lr=0.1)
+    # scheduler = lr_scheduler.ExponentialLR(optimizer, gamma=0.75)
+    # scheduler = lr_scheduler.CosineAnnealingLR(optimizer, T_max=1)
+    # criterion = DepthLoss()
+    # optimizer = torch.optim.Adam(Model.unfixedvalue.parameters(), lr=0.1)
+    optimizer = torch.optim.SGD(Model.unfixedvalue.parameters(), lr=0.1)
+    # scheduler = lr_scheduler.ExponentialLR(optimizer, gamma=0.75)
+    scheduler = lr_scheduler.StepLR(optimizer,step_size=10, gamma=0.5)
+    criterion = torch.nn.MSELoss()
+
+
+
 
     best_loss = float('inf')
     best_model = None
     ###########################################################################
 
     for epoch in range(args.epochs):
-        # loop= tqdm()
-        for i, (rgb_data, gt_data, dense) in enumerate(train_loader):
+        loop = tqdm(enumerate(train_loader),total=len(train_loader))
+        for index, (rgb_data, gt_data, dense) in loop:
             Model.train()
             if gt_data.ndim != 4 and gt_data[0] == False:
                 continue
-            rgb_data = rgb_data.cuda()  # [4 3 416 544]
-            gt_data = gt_data.cuda()  # [4 1 416 544]
+            rgb_data = rgb_data.cuda().half()  # [4 3 416 544]
+            gt_data = gt_data.cuda().half() # [4 1 416 544]
             input_img = rgb_data
 
             optimizer.zero_grad()
@@ -246,10 +259,20 @@ def main():
             loss = criterion(output_depth, gt_data)
             loss.backward()
             optimizer.step()
+            with torch.no_grad():
+                for param in Model.unfixedvalue.parameters():
+                    if param.grad is not None:
+                        param.grad.data = torch.clamp(param.grad.data, min=0.0)
+                Model.unfixedvalue.binlist.data = torch.sort(Model.unfixedvalue.binlist.data).values
+            lossvalue, lrvalue=loss.item(), scheduler.get_last_lr()
+            loop.set_description(f'Train Epoch [{epoch}/{args.epochs}]')
+            loop.set_postfix({"Loss":lossvalue, "Learning Rate":lrvalue})
         scheduler.step()
         Model.eval()
+
         with torch.no_grad():
-            for i, (rgb_data, gt_data, dense) in enumerate(val_loader):
+            loop_test = tqdm(enumerate(val_loader),total=len(val_loader))
+            for i, (rgb_data, gt_data, dense) in loop_test:
                 rgb_data = rgb_data.cuda()
                 gt_data = gt_data.cuda()
                 input_img = rgb_data
@@ -261,15 +284,24 @@ def main():
                     err_result = compute_errors_NYU(gt_data, output_depth, crop=True, idx=i)
 
                 errors.update(err_result)
+                errors_value = errors.avg
+                error_string = ', '.join('{} : {:.3f}'.format(name, error) for name, error in
+                                         zip(error_names[0:len(error_names)], errors_value[0:len(errors_value)]))
+                loop_test.set_description(f'Validation Epoch [{epoch}/{args.epochs}]')
+                loop_test.set_postfix({"error":error_string})
 
         errors_value = errors.avg
         error_string = ', '.join('{} : {:.3f}'.format(name, error) for name, error in zip(error_names[0:len(error_names)], errors_value[0:len(errors_value)]))
 
-        print(Model.unfixedvalue.binlist.data, Model.unfixedvalue.conv2d.weight.data)
-        print(f'Epoch [{epoch + 1}/{args.epochs}], Loss: {loss.item()}, LR: {scheduler.get_last_lr()}')
-        print(' * Avg {}\n'.format(error_string))
+        print(Model.unfixedvalue.binlist.data)
+        print('\n')
+        print(Model.unfixedvalue.conv2d.weight.data)
+        # print(f'Epoch [{epoch + 1}/{args.epochs}], Loss: {loss.item()}, LR: {scheduler.get_last_lr()}')
+        # print(' * Avg {}\n'.format(error_string))
         logging.info(
             f'Epoch [{epoch + 1}/{args.epochs}], Learning Rate: {optimizer.param_groups[0]["lr"]}, Loss: {loss.item()},Errors:{error_string}')
+    unfixedvalue_param = Model.unfixedvalue.state_dict()
+    torch.save(unfixedvalue_param, 'modelparam/TRAIN_MODEL_4.pth')
 
 
 if __name__ == '__main__':

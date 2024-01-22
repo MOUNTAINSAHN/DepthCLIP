@@ -27,9 +27,9 @@ parser.add_argument('--model_dir',type=str)
 parser.add_argument('--other_method', type=str, default='MonoCLIP') # default='MonoCLIP'
 parser.add_argument('--trainfile_kitti', type=str, default="./datasets/eigen_train_files_with_gt_dense.txt")
 parser.add_argument('--testfile_kitti', type=str, default="./datasets/eigen_test_files_with_gt_dense.txt")
-parser.add_argument('--trainfile_nyu', type=str, default="D:/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_train_files_with_gt_dense.txt")
-parser.add_argument('--testfile_nyu', type=str, default="D:/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_test_files_with_gt_dense.txt")
-parser.add_argument('--data_path', type=str, default="D:/DepthCLIP/DepthCLIP_code/datasets/NYU_Depth_V2/official_splits")
+parser.add_argument('--trainfile_nyu', type=str, default="/home/student/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_train_files_with_gt_dense.txtt")
+parser.add_argument('--testfile_nyu', type=str, default="/home/student/DepthCLIP/DepthCLIP_code/datasets/nyudepthv2_test_files_with_gt_dense.txt")
+parser.add_argument('--data_path', type=str, default="/home/student/DepthCLIP/DepthCLIP_code/datasets/NYU_Depth_V2/official_splits")
 parser.add_argument('--use_dense_depth', action='store_true', help='using dense depth data for gradient loss')
 
 # Dataloader setting

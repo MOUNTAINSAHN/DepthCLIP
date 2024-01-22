@@ -76,18 +76,6 @@ class MonoCLIP(nn.Module):
         # depth = depth.sum(1, keepdim=True)
         return depth  # shape: [1,1,13,17]
 
-
-class UnfixedValues(nn.Module):
-    def __init__(self):
-        super(UnfixedValues, self).__init__()
-        self.conv2d = nn.Conv2d(in_channels=7, out_channels=1, kernel_size=1, stride=1, padding=0, device="cuda:0")
-
-    def forward(self, x):
-        x = self.conv2d(x)
-        x = F.relu(x)
-        return x
-
-
 class UnfixedDepthValues(nn.Module):
     def __init__(self):
         super(UnfixedDepthValues, self).__init__()
@@ -97,8 +85,9 @@ class UnfixedDepthValues(nn.Module):
 
     def forward(self, x):
         x = x * self.binlist
+        # x = x.sum(1, keepdim=True)
         x = self.conv2d(x)
-        x = F.relu(x)
+        # x = F.relu(x)
         return x
 
 
@@ -109,9 +98,8 @@ class IntergratedDepthCLIP(nn.Module):
         self.monoclip = MonoCLIP()
         for param in self.monoclip.parameters():
             param.requires_grad = False
-        # self.unfixedvalue = UnfixedValues().cuda().half()
         self.unfixedvalue = UnfixedDepthValues().cuda().half()
-        for param in self.monoclip.parameters():
+        for param in self.unfixedvalue.parameters():
             param.requires_grad = True
 
 
