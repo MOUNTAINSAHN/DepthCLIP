@@ -11,7 +11,8 @@ from path import Path
 from utils import *
 from logger import AverageMeter
 from model import *
-from simpleDepthClip import *
+from monoclip import *
+# from simpleDepthClip import *
 from torchvision import transforms
 from torchvision.datasets import ImageFolder
 import os
@@ -24,7 +25,7 @@ transform = transforms.Compose([
 ])
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 data_path = r'D:\DepthCLIP\DepthCLIP_code\datasets\IMAGE'
-result = r"D:\DepthCLIP\DepthCLIP_code\RESULT\EXP1"
+result = r"D:\DepthCLIP\DepthCLIP_code\RESULT\EXP3"
 if not os.path.exists(result):
     os.mkdir(result)
 image_name = os.listdir(data_path)
